@@ -1,0 +1,944 @@
+<!DOCTYPE html>
+<html>
+{% load static %}
+   <head>
+      <title>HundredPad</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+      <meta charset="UTF-8">
+      <script src="https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js"></script>
+      <link rel="stylesheet" type="text/css" href="{% static 'css/main/bootstrap.min.css' %}" />
+      <link rel="stylesheet" type="text/css" href="{% static 'css/main/style.css' %}" />
+      <link rel="stylesheet" type="text/css" href="{% static 'css/main/font-awesome.css' %}" />
+      <link rel="stylesheet" type="text/css" href="{% static 'css/main/animate.css' %}" />
+      <link rel="stylesheet" type="text/css" href="{% static 'css/main/hover.css' %}" />
+      <link rel="stylesheet" type="text/css" href="{% static 'css/main/owl.carousel.min.css' %}" />
+      <link rel="stylesheet" type="text/css" href="{% static 'css/main/owl.theme.default.min.css' %}" />
+   </head>
+   <body>
+      <!-- header -->
+      <nav class="navbar navbar-default mynav">
+         <div class="container">
+            <div class="navbar-header">
+               <button type="button" class="navbar-toggle collapsed menu-collapsed-button" data-toggle="collapse" data-target="#navbar-primary-collapse" aria-expanded="false">
+               <span class="sr-only">Toggle navigation</span>
+               <span class="icon-bar top-bar"></span>
+               <span class="icon-bar middle-bar"></span>
+               <span class="icon-bar bottom-bar"></span>
+               </button>
+               <a class="" href="index.html">
+               <img src="{% static 'images/main/logo-new.png' %}" class="logo" />
+               </a>
+            </div>
+            <div class="collapse navbar-collapse navbar-right" id="navbar-primary-collapse">
+               <ul class="nav navbar-nav ">
+                  <li><a href="" class="">Buy Token</a></li>
+                  <li><a href="" class="">Apply your Project</a></li>
+                  <li class="dropdown">
+                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">DOCS <span class="caret"></span></a>
+                     <ul class="dropdown-menu">
+                        <li><a href="#">Whitepaper</a></li>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Roadmap</a></li>
+                        <li><a href="#">Tokenomics</a></li>
+                     </ul>
+                  </li>
+                  <li><a href="#" id="connect-button" onclick="connect();" class="btn loginBtn footerclass">CONNECT WALLET</a></li>
+               </ul>
+            </div>
+         </div>
+      </nav>
+      <!-- header -->
+      <!-- banner -->
+      <div class="banner">
+         <div class="container">
+            <div class="staking-token">
+               <h2>Staking Token</h2>
+               <p class="text-center">
+                  <a href="#" data-toggle="modal" data-target="#myModal" class="btn btn-staking">STAKING</a>
+               </p>
+               <div class="d-flex mt30">
+                  <div class="">
+                     <input type="text" class="form-control" name="" id="">
+                  </div>
+               </div>
+               <!-- d-flex --><br />
+               <p class="text-center">
+                  <a href="#" class="btn btn-staking">Withdraw</a>
+               </p>
+               <div class="d-flex mt30">
+                  <div class="">
+                     <input type="text" class="form-control" name="" id="">
+                  </div>
+               </div>
+               <p class="text-center">
+                  <span class="caps"> FIRST ORACLE LAUNCH PAD</span> <span class="block"></span>
+                  It is necessary $100 dollars to the value of the token  <span class="block"></span>
+                  to be able to participate in the lanunches.
+               </p>
+            </div>
+            <!-- starting-token -->
+         </div>
+      </div>
+      <!-- banner -->
+      <!-- project-section -->
+      <div class="project-section">
+         <div class="container">
+            <div class="project_sectionBox">
+               <div class="row">
+                  <div class="col-lg-offset-1 col-lg-10">
+                     <div class="row">
+                        <div class="col-lg-6 col-sm-6">
+                           <h2>Next 24 Hours</h2>
+                           <div class="projectBox" data-toggle="modal" data-target="#myModal">
+                              <div class="d-flex">
+                                 <div class="media">
+                                    <div class="media-left">
+                                       <a href="#">
+                                       <img class="media-object" src="{% static 'images/main/icon-circle.png' %}" alt="...">
+                                       </a>
+                                    </div>
+                                    <div class="media-body">
+                                       <h4 class="media-heading">Project 1</h4>
+                                    </div>
+                                 </div>
+                                 <div class="token_number">
+                                    <h5>$Token = $1</h5>
+                                 </div>
+                              </div>
+                              <!-- d-flex -->
+                              <p>
+                                 This is a survival game <span class="block"></span> with high definition
+                              </p>cñ
+                              <div class="social-flex">
+                                 <div class="social-link">
+                                    <ul>
+                                       <li><a href=""><img src="{% static 'images/main/social1.png' %}" alt=""></a></li>
+                                       <li><a href=""><img src="{% static 'images/main/social2.png' %}" alt=""></a></li>
+                                       <li><a href=""><img src="{% static 'images/main/social3.png' %}" alt=""></a></li>
+                                    </ul>
+                                 </div>
+                                 <div class="social-btn">
+                                    <a href="" class="btn btn-staking">19:33:27</a>
+                                 </div>
+                              </div>
+                              <!-- social-flex -->
+                           </div>
+                           <!-- projectBox -->
+                        </div>
+                        <!-- col -->
+                        <div class="col-lg-6 col-sm-6">
+                           <h2>Finished</h2>
+                           <div class="progress-section">
+                              <div id="carousel-example-vertical" class="carousel vertical slide">
+                                 <div class="carousel-inner" role="listbox">
+                                    <div class="item active">
+                                       <div class="text-flex">
+                                          <div class="progress-text" data-toggle="modal" data-target="#myModal">
+                                             <span>NFT GAME</span>
+                                          </div>
+                                          <div class="progress-perc">
+                                             <span>81%</span>
+                                          </div>
+                                       </div>
+                                       <div class="progress">
+                                          <span class="text-middle">X13</span>
+                                          <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 81%">
+                                          </div>
+                                       </div>
+                                       <!-- progress -->
+                                       <div class="text-flex">
+                                          <div class="progress-text" data-toggle="modal" data-target="#myModal">
+                                             <span>DEFI COMPANY</span>
+                                          </div>
+                                          <div class="progress-perc">
+                                             <span>77%</span>
+                                          </div>
+                                       </div>
+                                       <div class="progress">
+                                          <span class="text-middle">X4</span>
+                                          <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 77%">
+                                          </div>
+                                       </div>
+                                       <!-- progress -->
+                                       <div class="text-flex">
+                                          <div class="progress-text" data-toggle="modal" data-target="#myModal">
+                                             <span>EXCHANGE</span>
+                                          </div>
+                                          <div class="progress-perc">
+                                             <span>80%</span>
+                                          </div>
+                                       </div>
+                                       <div class="progress">
+                                          <span class="text-middle">X19</span>
+                                          <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 90%">
+                                          </div>
+                                       </div>
+                                       <!-- progress -->
+                                    </div>
+                                    <!-- item -->
+                                    <div class="item">
+                                       <div class="text-flex">
+                                          <div class="progress-text" data-toggle="modal" data-target="#myModal">
+                                             <span>NFT GAME</span>
+                                          </div>
+                                          <div class="progress-perc">
+                                             <span>81%</span>
+                                          </div>
+                                       </div>
+                                       <div class="progress">
+                                          <span class="text-middle">X13</span>
+                                          <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 81%">
+                                          </div>
+                                       </div>
+                                       <!-- progress -->
+                                       <div class="text-flex">
+                                          <div class="progress-text" data-toggle="modal" data-target="#myModal">
+                                             <span>DEFI COMPANY</span>
+                                          </div>
+                                          <div class="progress-perc">
+                                             <span>77%</span>
+                                          </div>
+                                       </div>
+                                       <div class="progress">
+                                          <span class="text-middle">X4</span>
+                                          <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 77%">
+                                          </div>
+                                       </div>
+                                       <!-- progress -->
+                                       <div class="text-flex">
+                                          <div class="progress-text" data-toggle="modal" data-target="#myModal">
+                                             <span>EXCHANGE</span>
+                                          </div>
+                                          <div class="progress-perc">
+                                             <span>80%</span>
+                                          </div>
+                                       </div>
+                                       <div class="progress">
+                                          <span class="text-middle">X19</span>
+                                          <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 90%">
+                                          </div>
+                                       </div>
+                                       <!-- progress -->
+                                    </div>
+                                    <!-- item -->
+                                    <div class="item">
+                                       <div class="text-flex">
+                                          <div class="progress-text" data-toggle="modal" data-target="#myModal"> 
+                                             <span>NFT GAME</span>
+                                          </div>
+                                          <div class="progress-perc">
+                                             <span>81%</span>
+                                          </div>
+                                       </div>
+                                       <div class="progress">
+                                          <span class="text-middle">X13</span>
+                                          <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 81%">
+                                          </div>
+                                       </div>
+                                       <!-- progress -->
+                                       <div class="text-flex">
+                                          <div class="progress-text" data-toggle="modal" data-target="#myModal">
+                                             <span>DEFI COMPANY</span>
+                                          </div>
+                                          <div class="progress-perc">
+                                             <span>77%</span>
+                                          </div>
+                                       </div>
+                                       <div class="progress">
+                                          <span class="text-middle">X4</span>
+                                          <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 77%">
+                                          </div>
+                                       </div>
+                                       <!-- progress -->
+                                       <div class="text-flex">
+                                          <div class="progress-text" data-toggle="modal" data-target="#myModal">
+                                             <span>EXCHANGE</span>
+                                          </div>
+                                          <div class="progress-perc">
+                                             <span>80%</span>
+                                          </div>
+                                       </div>
+                                       <div class="progress">
+                                          <span class="text-middle">X19</span>
+                                          <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 90%">
+                                          </div>
+                                       </div>
+                                       <!-- progress -->
+                                    </div>
+                                    <!--item -->
+                                    <div class="item">
+                                       <div class="text-flex">
+                                          <div class="progress-text" data-toggle="modal" data-target="#myModal">
+                                             <span>NFT GAME</span>
+                                          </div>
+                                          <div class="progress-perc">
+                                             <span>81%</span>
+                                          </div>
+                                       </div>
+                                       <div class="progress">
+                                          <span class="text-middle">X13</span>
+                                          <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 81%">
+                                          </div>
+                                       </div>
+                                       <!-- progress -->
+                                       <div class="text-flex">
+                                          <div class="progress-text" data-toggle="modal" data-target="#myModal">
+                                             <span>DEFI COMPANY</span>
+                                          </div>
+                                          <div class="progress-perc">
+                                             <span>77%</span>
+                                          </div>
+                                       </div>
+                                       <div class="progress">
+                                          <span class="text-middle">X4</span>
+                                          <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 77%">
+                                          </div>
+                                       </div>
+                                       <!-- progress -->
+                                       <div class="text-flex">
+                                          <div class="progress-text" data-toggle="modal" data-target="#myModal">
+                                             <span>EXCHANGE</span>
+                                          </div>
+                                          <div class="progress-perc">
+                                             <span>80%</span>
+                                          </div>
+                                       </div>
+                                       <div class="progress">
+                                          <span class="text-middle">X19</span>
+                                          <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 90%">
+                                          </div>
+                                       </div>
+                                       <!-- progress -->
+                                    </div>
+                                 </div>
+                                 <!-- Controls -->
+                                 <a class="up carousel-control" href="#carousel-example-vertical" role="button" data-slide="prev">
+                                 <span class="glyphicon glyphicon-chevron-up" aria-hidden="true"></span>
+                                 <span class="sr-only">Previous</span>
+                                 </a>
+                                 <a class="down carousel-control" href="#carousel-example-vertical" role="button" data-slide="next">
+                                 <span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span>
+                                 <span class="sr-only">Next</span>
+                                 </a>
+                              </div>
+                           </div>
+                           <!-- progress-section -->
+                        </div>
+                        <!-- col -->
+                     </div>
+                     <!-- inner-row -->
+                     <div class="coming-soon">
+                        <h4>Coming Soon...</h4>
+                        <div class="row">
+                           <div class="col-lg-offset-1 col-lg-10">
+                              <div class="coming-soon owl-carousel">
+                                 <div class="item">
+                                    <div class="row">
+                                       <div class="col-md-6 col-sm-6">
+                                          <div class="projectBox" data-toggle="modal" data-target="#myModal">
+                                             <div class="d-flex">
+                                                <div class="media">
+                                                   <div class="media-left">
+                                                      <a href="#">
+                                                      <img class="media-object" src="{% static 'images/main/icon-circle.png' %}" alt="...">
+                                                      </a>
+                                                   </div>
+                                                   <div class="media-body">
+                                                      <h4 class="media-heading">Project 2</h4>
+                                                   </div>
+                                                </div>
+                                                <div class="token_number">
+                                                   <h5>$Token = $1</h5>
+                                                </div>
+                                             </div>
+                                             <!-- d-flex -->
+                                             <p>
+                                                This is a survival game <span class="block"></span> with high definition
+                                             </p>
+                                             <div class="social-flex">
+                                                <div class="social-link">
+                                                   <ul>
+                                                      <li><a href=""><img src="{% static 'images/main/social1.png' %}" alt=""></a></li>
+                                                      <li><a href=""><img src="{% static 'images/main/social2.png' %}" alt=""></a></li>
+                                                      <li><a href=""><img src="{% static 'images/main/social3.png' %}" alt=""></a></li>
+                                                   </ul>
+                                                </div>
+                                                <div class="social-btn">
+                                                   <a href="" class="btn btn-staking">11 days</a>
+                                                </div>
+                                             </div>
+                                             <!-- social-flex -->
+                                          </div>
+                                          <!-- box -->
+                                          <div class="projectBox" data-toggle="modal" data-target="#myModal">
+                                             <div class="d-flex">
+                                                <div class="media">
+                                                   <div class="media-left">
+                                                      <a href="#">
+                                                      <img class="media-object" src="{% static 'images/main/icon-circle.png' %}" alt="...">
+                                                      </a>
+                                                   </div>
+                                                   <div class="media-body">
+                                                      <h4 class="media-heading">Project 2</h4>
+                                                   </div>
+                                                </div>
+                                                <div class="token_number">
+                                                   <h5>$Token = $1</h5>
+                                                </div>
+                                             </div>
+                                             <!-- d-flex -->
+                                             <p>
+                                                This is a survival game <span class="block"></span> with high definition
+                                             </p>
+                                             <div class="social-flex">
+                                                <div class="social-link">
+                                                   <ul>
+                                                      <li><a href=""><img src="{% static 'images/main/social1.png' %}" alt=""></a></li>
+                                                      <li><a href=""><img src="{% static 'images/main/social2.png' %}" alt=""></a></li>
+                                                      <li><a href=""><img src="{% static 'images/main/social3.png' %}" alt=""></a></li>
+                                                   </ul>
+                                                </div>
+                                                <div class="social-btn">
+                                                   <a href="" class="btn btn-staking">11 days</a>
+                                                </div>
+                                             </div>
+                                             <!-- social-flex -->
+                                          </div>
+                                          <!-- box -->
+                                       </div>
+                                       <!-- col -->
+                                       <div class="col-md-6 col-sm-6">
+                                          <div class="projectBox" data-toggle="modal" data-target="#myModal">
+                                             <div class="d-flex">
+                                                <div class="media">
+                                                   <div class="media-left">
+                                                      <a href="#">
+                                                      <img class="media-object" src="{% static 'images/main/icon-circle.png' %}" alt="...">
+                                                      </a>
+                                                   </div>
+                                                   <div class="media-body">
+                                                      <h4 class="media-heading">Project 3</h4>
+                                                   </div>
+                                                </div>
+                                                <div class="token_number">
+                                                   <h5>$Token = $1</h5>
+                                                </div>
+                                             </div>
+                                             <!-- d-flex -->
+                                             <p>
+                                                This is a survival game <span class="block"></span> with high definition
+                                             </p>
+                                             <div class="social-flex">
+                                                <div class="social-link">
+                                                   <ul>
+                                                      <li><a href=""><img src="{% static 'images/main/social1.png' %}" alt=""></a></li>
+                                                      <li><a href=""><img src="{% static 'images/main/social2.png' %}" alt=""></a></li>
+                                                      <li><a href=""><img src="{% static 'images/main/social3.png' %}" alt=""></a></li>
+                                                   </ul>
+                                                </div>
+                                                <div class="social-btn">
+                                                   <a href="" class="btn btn-staking">14 days</a>
+                                                </div>
+                                             </div>
+                                             <!-- social-flex -->
+                                          </div>
+                                          <!-- box -->
+                                          <div class="projectBox" data-toggle="modal" data-target="#myModal">
+                                             <div class="d-flex">
+                                                <div class="media">
+                                                   <div class="media-left">
+                                                      <a href="#">
+                                                      <img class="media-object" src="{% static 'images/main/icon-circle.png' %}" alt="...">
+                                                      </a>
+                                                   </div>
+                                                   <div class="media-body">
+                                                      <h4 class="media-heading">Project 3</h4>
+                                                   </div>
+                                                </div>
+                                                <div class="token_number">
+                                                   <h5>$Token = $1</h5>
+                                                </div>
+                                             </div>
+                                             <!-- d-flex -->
+                                             <p>
+                                                This is a survival game <span class="block"></span> with high definition
+                                             </p>
+                                             <div class="social-flex">
+                                                <div class="social-link">
+                                                   <ul>
+                                                      <li><a href=""><img src="{% static 'images/main/social1.png' %}" alt=""></a></li>
+                                                      <li><a href=""><img src="{% static 'images/main/social2.png' %}" alt=""></a></li>
+                                                      <li><a href=""><img src="{% static 'images/main/social3.png' %}" alt=""></a></li>
+                                                   </ul>
+                                                </div>
+                                                <div class="social-btn">
+                                                   <a href="" class="btn btn-staking">14 days</a>
+                                                </div>
+                                             </div>
+                                             <!-- social-flex -->
+                                          </div>
+                                          <!-- box -->
+                                       </div>
+                                       <!-- col -->
+                                    </div>
+                                    <!-- row -->
+                                 </div>
+                                 <!-- item -->
+                                 <div class="item">
+                                    <div class="row">
+                                       <div class="col-md-6 col-sm-6">
+                                          <div class="projectBox" data-toggle="modal" data-target="#myModal">
+                                             <div class="d-flex">
+                                                <div class="media">
+                                                   <div class="media-left">
+                                                      <a href="#">
+                                                      <img class="media-object" src="{% static 'images/main/icon-circle.png' %}" alt="...">
+                                                      </a>
+                                                   </div>
+                                                   <div class="media-body">
+                                                      <h4 class="media-heading">Project 2</h4>
+                                                   </div>
+                                                </div>
+                                                <div class="token_number">
+                                                   <h5>$Token = $1</h5>
+                                                </div>
+                                             </div>
+                                             <!-- d-flex -->
+                                             <p>
+                                                This is a survival game <span class="block"></span> with high definition
+                                             </p>
+                                             <div class="social-flex">
+                                                <div class="social-link">
+                                                   <ul>
+                                                      <li><a href=""><img src="{% static 'images/main/social1.png' %}" alt=""></a></li>
+                                                      <li><a href=""><img src="{% static 'images/main/social2.png' %}" alt=""></a></li>
+                                                      <li><a href=""><img src="{% static 'images/main/social3.png' %}" alt=""></a></li>
+                                                   </ul>
+                                                </div>
+                                                <div class="social-btn">
+                                                   <a href="" class="btn btn-staking">11 days</a>
+                                                </div>
+                                             </div>
+                                             <!-- social-flex -->
+                                          </div>
+                                          <!-- box -->
+                                          <div class="projectBox" data-toggle="modal" data-target="#myModal">
+                                             <div class="d-flex">
+                                                <div class="media">
+                                                   <div class="media-left">
+                                                      <a href="#">
+                                                      <img class="media-object" src="{% static 'images/main/icon-circle.png' %}" alt="...">
+                                                      </a>
+                                                   </div>
+                                                   <div class="media-body">
+                                                      <h4 class="media-heading">Project 2</h4>
+                                                   </div>
+                                                </div>
+                                                <div class="token_number">
+                                                   <h5>$Token = $1</h5>
+                                                </div>
+                                             </div>
+                                             <!-- d-flex -->
+                                             <p>
+                                                This is a survival game <span class="block"></span> with high definition
+                                             </p>
+                                             <div class="social-flex">
+                                                <div class="social-link">
+                                                   <ul>
+                                                      <li><a href=""><img src="images/social1.png" alt=""></a></li>
+                                                      <li><a href=""><img src="images/social2.png" alt=""></a></li>
+                                                      <li><a href=""><img src="images/social3.png" alt=""></a></li>
+                                                   </ul>
+                                                </div>
+                                                <div class="social-btn">
+                                                   <a href="" class="btn btn-staking">11 days</a>
+                                                </div>
+                                             </div>
+                                             <!-- social-flex -->
+                                          </div>
+                                          <!-- box -->
+                                       </div>
+                                       <!-- col -->
+                                       <div class="col-md-6 col-sm-6">
+                                          <div class="projectBox" data-toggle="modal" data-target="#myModal">
+                                             <div class="d-flex">
+                                                <div class="media">
+                                                   <div class="media-left">
+                                                      <a href="#">
+                                                      <img class="media-object" src="{% static 'images/main/icon-circle.png' %}" alt="...">
+                                                      </a>
+                                                   </div>
+                                                   <div class="media-body">
+                                                      <h4 class="media-heading">Project 3</h4>
+                                                   </div>
+                                                </div>
+                                                <div class="token_number">
+                                                   <h5>$Token = $1</h5>
+                                                </div>
+                                             </div>
+                                             <!-- d-flex -->
+                                             <p>
+                                                This is a survival game <span class="block"></span> with high definition
+                                             </p>
+                                             <div class="social-flex">
+                                                <div class="social-link">
+                                                   <ul>
+                                                      <li><a href=""><img src="images/social1.png" alt=""></a></li>
+                                                      <li><a href=""><img src="images/social2.png" alt=""></a></li>
+                                                      <li><a href=""><img src="images/social3.png" alt=""></a></li>
+                                                   </ul>
+                                                </div>
+                                                <div class="social-btn">
+                                                   <a href="" class="btn btn-staking">14 days</a>
+                                                </div>
+                                             </div>
+                                             <!-- social-flex -->
+                                          </div>
+                                          <!-- box -->
+                                          <div class="projectBox" data-toggle="modal" data-target="#myModal">
+                                             <div class="d-flex">
+                                                <div class="media">
+                                                   <div class="media-left">
+                                                      <a href="#">
+                                                      <img class="media-object" src="{% static 'images/main/icon-circle.png' %}" alt="...">
+                                                      </a>
+                                                   </div>
+                                                   <div class="media-body">
+                                                      <h4 class="media-heading">Project 3</h4>
+                                                   </div>
+                                                </div>
+                                                <div class="token_number">
+                                                   <h5>$Token = $1</h5>
+                                                </div>
+                                             </div>
+                                             <!-- d-flex -->
+                                             <p>
+                                                This is a survival game <span class="block"></span> with high definition
+                                             </p>
+                                             <div class="social-flex">
+                                                <div class="social-link">
+                                                   <ul>
+                                                      <li><a href=""><img src="images/social1.png" alt=""></a></li>
+                                                      <li><a href=""><img src="images/social2.png" alt=""></a></li>
+                                                      <li><a href=""><img src="images/social3.png" alt=""></a></li>
+                                                   </ul>
+                                                </div>
+                                                <div class="social-btn">
+                                                   <a href="" class="btn btn-staking">14 days</a>
+                                                </div>
+                                             </div>
+                                             <!-- social-flex -->
+                                          </div>
+                                          <!-- box -->
+                                       </div>
+                                       <!-- col -->
+                                    </div>
+                                    <!-- row -->
+                                 </div>
+                                 <!-- item-->
+                                 <div class="item">
+                                    <div class="row">
+                                       <div class="col-md-6 col-sm-6">
+                                          <div class="projectBox" data-toggle="modal" data-target="#myModal">
+                                             <div class="d-flex">
+                                                <div class="media">
+                                                   <div class="media-left">
+                                                      <a href="#">
+                                                      <img class="media-object" src="{% static 'images/main/icon-circle.png' %}" alt="...">
+                                                      </a>
+                                                   </div>
+                                                   <div class="media-body">
+                                                      <h4 class="media-heading">Project 2</h4>
+                                                   </div>
+                                                </div>
+                                                <div class="token_number">
+                                                   <h5>$Token = $1</h5>
+                                                </div>
+                                             </div>
+                                             <!-- d-flex -->
+                                             <p>
+                                                This is a survival game <span class="block"></span> with high definition
+                                             </p>
+                                             <div class="social-flex">
+                                                <div class="social-link">
+                                                   <ul>
+                                                      <li><a href=""><img src="{% static 'images/main/social1.png' %}" alt=""></a></li>
+                                                      <li><a href=""><img src="{% static 'images/main/social2.png' %}" alt=""></a></li>
+                                                      <li><a href=""><img src="{% static 'images/main/social3.png' %}" alt=""></a></li>
+                                                   </ul>
+                                                </div>
+                                                <div class="social-btn">
+                                                   <a href="" class="btn btn-staking">11 days</a>
+                                                </div>
+                                             </div>
+                                             <!-- social-flex -->
+                                          </div>
+                                          <!-- box -->
+                                          <div class="projectBox" data-toggle="modal" data-target="#myModal">
+                                             <div class="d-flex">
+                                                <div class="media">
+                                                   <div class="media-left">
+                                                      <a href="#">
+                                                      <img class="media-object" src="{% static 'images/main/icon-circle.png' %}" alt="...">
+                                                      </a>
+                                                   </div>
+                                                   <div class="media-body">
+                                                      <h4 class="media-heading">Project 2</h4>
+                                                   </div>
+                                                </div>
+                                                <div class="token_number">
+                                                   <h5>$Token = $1</h5>
+                                                </div>
+                                             </div>
+                                             <!-- d-flex -->
+                                             <p>
+                                                This is a survival game <span class="block"></span> with high definition
+                                             </p>
+                                             <div class="social-flex">
+                                                <div class="social-link">
+                                                   <ul>
+                                                      <li><a href=""><img src="images/social1.png" alt=""></a></li>
+                                                      <li><a href=""><img src="images/social2.png" alt=""></a></li>
+                                                      <li><a href=""><img src="images/social3.png" alt=""></a></li>
+                                                   </ul>
+                                                </div>
+                                                <div class="social-btn">
+                                                   <a href="" class="btn btn-staking">11 days</a>
+                                                </div>
+                                             </div>
+                                             <!-- social-flex -->
+                                          </div>
+                                          <!-- box -->
+                                       </div>
+                                       <!-- col -->
+                                       <div class="col-md-6 col-sm-6">
+                                          <div class="projectBox" data-toggle="modal" data-target="#myModal">
+                                             <div class="d-flex">
+                                                <div class="media">
+                                                   <div class="media-left">
+                                                      <a href="#">
+                                                      <img class="media-object" src="{% static 'images/main/icon-circle.png' %}" alt="...">
+                                                      </a>
+                                                   </div>
+                                                   <div class="media-body">
+                                                      <h4 class="media-heading">Project 3</h4>
+                                                   </div>
+                                                </div>
+                                                <div class="token_number">
+                                                   <h5>$Token = $1</h5>
+                                                </div>
+                                             </div>
+                                             <!-- d-flex -->
+                                             <p>
+                                                This is a survival game <span class="block"></span> with high definition
+                                             </p>
+                                             <div class="social-flex">
+                                                <div class="social-link">
+                                                   <ul>
+                                                      <li><a href=""><img src="images/social1.png" alt=""></a></li>
+                                                      <li><a href=""><img src="images/social2.png" alt=""></a></li>
+                                                      <li><a href=""><img src="images/social3.png" alt=""></a></li>
+                                                   </ul>
+                                                </div>
+                                                <div class="social-btn">
+                                                   <a href="" class="btn btn-staking">14 days</a>
+                                                </div>
+                                             </div>
+                                             <!-- social-flex -->
+                                          </div>
+                                          <!-- box -->
+                                          <div class="projectBox" data-toggle="modal" data-target="#myModal">
+                                             <div class="d-flex">
+                                                <div class="media">
+                                                   <div class="media-left">
+                                                      <a href="#">
+                                                      <img class="media-object" src="{% static 'images/main/icon-circle.png' %}" alt="...">
+                                                      </a>
+                                                   </div>
+                                                   <div class="media-body">
+                                                      <h4 class="media-heading">Project 3</h4>
+                                                   </div>
+                                                </div>
+                                                <div class="token_number">
+                                                   <h5>$Token = $1</h5>
+                                                </div>
+                                             </div>
+                                             <!-- d-flex -->
+                                             <p>
+                                                This is a survival game <span class="block"></span> with high definition
+                                             </p>
+                                             <div class="social-flex">
+                                                <div class="social-link">
+                                                   <ul>
+                                                      <li><a href=""><img src="images/social1.png" alt=""></a></li>
+                                                      <li><a href=""><img src="images/social2.png" alt=""></a></li>
+                                                      <li><a href=""><img src="images/social3.png" alt=""></a></li>
+                                                   </ul>
+                                                </div>
+                                                <div class="social-btn">
+                                                   <a href="" class="btn btn-staking">14 days</a>
+                                                </div>
+                                             </div>
+                                             <!-- social-flex -->
+                                          </div>
+                                          <!-- box -->
+                                       </div>
+                                       <!-- col -->
+                                    </div>
+                                    <!-- row -->
+                                 </div>
+                                 <!-- item-->
+                              </div>
+                              <!-- slider -->
+                           </div>
+                           <!-- col -->
+                        </div>
+                        <!-- row -->
+                     </div>
+                     <!-- coming-soon -->
+                  </div>
+                  <!-- col -->
+               </div>
+               <!-- row -->
+            </div>
+            <!-- project_sectionBox  -->
+         </div>
+      </div>
+      <!-- project-section -->
+      <!-- footer -->
+      <div class="footer">
+         <div class="bg-light">
+            <div class="container">
+               <ul class="social-item">
+                  <li><a href=""><img src="{% static 'images/main/icon-circle.png' %}" alt=""></a></li>
+                  <li><a href=""><img src="{% static 'images/main/footer1.png' %}" alt=""></a></li>
+                  <li><a href=""><img src="{% static 'images/main/footer3.png' %}" alt=""></a></li>
+                  <li><a href=""><img src="{% static 'images/main/footer4.png' %}"  alt=""></a></li>
+                  <li><a href=""><img src="{% static 'images/main/footer6.png' %}"  alt=""></a></li>
+                  <li><a href=""><img src="{% static 'images/main/footer7.png' %}"  alt=""></a></li>
+               </ul>
+               <!-- social-item -->
+            </div>
+         </div>
+      </div>
+      <!-- footer -->
+      <!-- Modal -->
+      <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+         <div class="modal-dialog" role="document">
+            we
+            <div class="modal-content">
+               <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">X</span></button>
+               </div>
+               <div class="modal-body">
+                  <div class="media">
+                     <div class="media-left">
+                        <a href="#">
+                        <img class="media-object" src="{% static 'images/main/icon-circle.png' %}" alt="...">
+                        </a>
+                     </div>
+                     <div class="media-body">
+                        <h4 class="media-heading">NFT GAME</h4>
+                        <p>
+                           This is a survival game <span class="block"></span> with high definition
+                        </p>
+                     </div>
+                  </div>
+                  <!-- media -->
+                  <div class="modal-relative">
+                     <div class="text-flex">
+                        <div class="progress-text">
+                        </div>
+                        <div class="progress-perc">
+                           <span>81%</span>
+                        </div>
+                     </div>
+                     <div class="progress">
+                        <span class="text-middle">X13</span>
+                        <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 81%">
+                        </div>
+                     </div>
+                     <!-- progress -->
+                  </div>
+                  <div class="social-flex">
+                     <div class="social-link">
+                        <ul>
+                           <li><a href=""><img src="{% static 'images/main/social1.png' %}" alt=""></a></li>
+                           <li><a href=""><img src="{% static 'images/main/social2.png' %}" alt=""></a></li>
+                           <li><a href=""><img src="{% static 'images/main/social3.png' %}" alt=""></a></li>
+                        </ul>
+                     </div>
+                  </div>
+                  <!-- social-flex -->
+               </div>
+               <!-- modal-body -->
+            </div>
+         </div>
+      </div>
+      <script type="text/javascript" src="{% static 'js/main/jquery.js' %}"></script>
+      <script type="text/javascript" src="{% static 'js/main/bootstrap.min.js' %}"></script>
+      <script type="text/javascript" src="{% static 'js/main/index.js' %}"></script>
+      <script type="text/javascript" src="{% static 'js/main/wow.js' %}"></script>
+      <script type="text/javascript" src="{% static 'js/main/owl.carousel.js' %}"></script>
+      <script>
+        //Get the button
+        let mybutton = document.getElementById("btn-back-to-top");
+
+        // When the user scrolls down 20px from the top of the document, show the button
+        window.onscroll = function () {
+        scrollFunction();
+        };
+
+        function scrollFunction() {
+        if (
+            document.body.scrollTop > 500 ||
+            document.documentElement.scrollTop > 500
+        ) {
+            mybutton.style.display = "block";
+        } else {
+            mybutton.style.display = "none";
+        }
+        }
+        // When the user clicks on the button, scroll to the top of the document
+        mybutton.addEventListener("click", backToTop);
+
+        function backToTop() {
+        document.body.scrollTop = 0;
+        document.documentElement.scrollTop = 0;
+        }
+    </script>
+    <script type="text/javascript">
+
+            window.onload = function () {
+              load();
+            } 
+
+            async function connect() {
+                await load();
+                const account = await getAccount();
+            }
+
+            async function load() {
+                await loadWeb3();
+                //window.contract = await loadContract();
+            }
+            
+            async function loadWeb3() {
+                if (window.ethereum) {
+                  window.web3 = new Web3(window.ethereum);
+                }
+                else {
+                    setTimeout(function(){
+                        window.alert('Metamask is not Installed! https://chrome.google.com/webstore/detail/metamask/nkbihfbeogaeaoehlefnkodbefgpgknn')
+                    }, 5000);
+                }
+              }
+            
+            async function getAccount() {
+                const accounts = await ethereum.request({ method: 'eth_requestAccounts' });
+                document.getElementById('connect-button').innerHTML = 'CONNECTED';
+                return accounts[0];
+            }
+      </script>
+   </body>
+</html>

@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>HundredPad</title>
+
+    <link rel="icon" type="image/png" href="{% static 'images/main/favicon.png' %}" />
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css?family=Cabin" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400" rel="stylesheet">
+
+    <link rel="stylesheet" href="{% static 'css/main/app.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/main/main.css' %}">
+</head>
+
+<body>
+
+    <div id="pageloader" class="pageloader is-left-to-right is-theme"></div>
+    <div id="infraloader" class="infraloader is-active"></div>    
+    <div class="token-wrapper">
+        <!-- Landing page Hero -->
+        <section class="hero is-medium">
+            <div class="hero-head">
+    
+                <!-- Cloned navbar -->
+                <!-- Cloned navbar that comes in on scroll -->
+                <nav x-data="initNavbar()"  x-on:scroll.window="scroll()" id="navbar-clone" class="navbar is-fixed is-dark" :class="{
+                        'is-active': scrolled,
+                        '': !scrolled
+                    }">
+                    <div class="container">
+                        <!-- Brand -->
+                        <div class="navbar-brand">
+                            <a href="homepage" class="navbar-item">
+                                <img class="rotating" src="{% static 'images/main/logo/krypton-gradient.svg' %}" alt="">
+                                <span class="brand-name">HundredPad</span>
+                            </a>
+                            <!-- Responsive toggle -->
+                            <div class="navbar-burger" @click="openMobileMenu()">
+                                <div class="menu-toggle">
+                                    <span class="icon-box-toggle" :class="{
+                                            'active': mobileOpen,
+                                            '': !mobileOpen
+                                        }">
+                                        <span class="rotate">
+                                            <i class="icon-line-top"></i>
+                                            <i class="icon-line-center"></i>
+                                            <i class="icon-line-bottom"></i>
+                                        </span>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Menu -->
+                        <div id="cloneNavbarMenu" class="navbar-menu" :class="{
+                                'is-active': mobileOpen,
+                                '': !mobileOpen
+                            }">
+                            <div class="navbar-end">
+                                <!-- Menu item -->
+                                <div class="navbar-item is-nav-link">
+                                    <a class="is-centered-responsive" href="tokenomics">Tokenomics</a>
+                                </div>
+                                <!-- Menu item 
+                                <div class="navbar-item is-nav-link">
+                                    <a class="is-centered-responsive" href="ico.html">Ico</a>
+                                </div>-->
+                                <!-- Menu item -->
+                                <div class="navbar-item is-nav-link">
+                                    <a class="is-centered-responsive" href="roadmap">Roadmap</a>
+                                </div>
+                                <!-- Menu item 
+                                <div class="navbar-item is-nav-link">
+                                    <a class="is-centered-responsive" href="blog.html">Media</a>
+                                </div>-->
+                                <!-- Menu item 
+                                <div class="navbar-item is-nav-link">
+                                    <a class="is-centered-responsive" href="#" target="_blank">
+                                        <img class="telegram" src="img/logo/telegram.svg" alt="">
+                                        Telegramm
+                                    </a>
+                                </div>-->
+                                <!-- Sign up -->
+                                <div class="navbar-item is-nav-link">
+                                    <a href="" class="button k-button k-primary raised has-gradient slanted">
+                                        <span class="text">COMING SOON</span>
+                                        <span class="front-gradient"></span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </nav>
+                <!-- /Cloned navbar -->
+                <!-- Static navbar -->
+                <!-- Static navbar -->
+                <nav x-data="initNavbar()" class="navbar is-light" :class="{
+                        'is-dark-mobile': mobileOpen,
+                        '': !mobileOpen
+                    }">
+                    <div class="container">
+                        <!-- Brand -->
+                        <div class="navbar-brand">
+                            <a href="homepage" class="navbar-item">
+                                <img class="rotating" src="{% static 'images/main/logo/krypton.svg' %}" alt="">
+                                <span class="brand-name">HundredPad</span>
+                            </a>
+                            <!-- Responsive toggle -->
+                            <div class="navbar-burger" @click="openMobileMenu()">
+                                <div class="menu-toggle">
+                                    <span class="icon-box-toggle" :class="{
+                                            'active': mobileOpen,
+                                            '': !mobileOpen
+                                        }">
+                                        <span class="rotate">
+                                            <i class="icon-line-top"></i>
+                                            <i class="icon-line-center"></i>
+                                            <i class="icon-line-bottom"></i>
+                                        </span>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Menu -->
+                        <div id="navbarMenu" class="navbar-menu light-menu" :class="{
+                                'is-active': mobileOpen,
+                                '': !mobileOpen
+                            }">
+                            <div class="navbar-end">
+                                <!-- Menu item -->
+                                <div class="navbar-item is-nav-link">
+                                    <a class="is-centered-responsive" href="tokenomics">Tokenomics</a>
+                                </div>
+                                <!-- Menu item 
+                                <div class="navbar-item is-nav-link">
+                                    <a class="is-centered-responsive" href="ico.html">Ico</a>
+                                </div>-->
+                                <!-- Menu item -->
+                                <div class="navbar-item is-nav-link">
+                                    <a class="is-centered-responsive" href="roadmap">Roadmap</a>
+                                </div>
+                                <!-- Menu item 
+                                <div class="navbar-item is-nav-link">
+                                    <a class="is-centered-responsive" href="blog.html">Media</a>
+                                </div>-->
+                                <!-- Menu item -->
+                                <!--<div class="navbar-item is-nav-link">
+                                    <a class="is-centered-responsive" href="#" target="_blank">
+                                        <img class="telegram" src="img/logo/telegram.svg" alt="">
+                                        Telegram
+                                    </a>
+                                </div>-->
+                                <!-- Sign up -->
+                                <div class="navbar-item">
+                                    <a href="" class="button k-button k-primary raised has-gradient slanted">
+                                        <span class="text">COMING SOON</span>
+                                        <span class="front-gradient"></span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </nav>
+                <!-- /Static navbar -->
+            </div>
+    
+            <div class="hero-body has-text-centered">
+                <div class="columns">
+                    <div class="column is-6 is-offset-3">
+                        <div class="token-image">
+                            <img src="{% static 'images/main/illustrations/cajitas apiladas solas-01.svg' %}">
+                        </div>
+                        <h1 class="title is-2 is-light is-semibold is-spaced main-title">HUNPAD</h1>
+                        <h2 class="subtitle is-5 is-light is-thin">
+                            The most inclusive token of all launchpads.
+                        </h2>
+                        <!-- CTA -->
+                        <p>
+                            <a href="https://hundredpad.gitbook.io/whitepaper/" class="button k-button k-primary raised has-gradient is-fat is-bold">
+                                <span class="text">More details</span>
+                                <span class="front-gradient"></span>
+                            </a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    
+        <section class="section is-medium">
+            <div class="container">
+    
+                <!-- Content wrapper -->
+                <div class="content-wrapper">
+    
+                    <div class="columns is-vcentered">
+                        <!-- Feature content -->
+                        <div class="column is-5 is-offset-1">
+                            <div class="side-feature-content">
+    
+                                <h3 class="title is-4 is-light">General information</h3>
+                                <div class="divider"></div>
+                                <p class="is-light">The initial supply will be 1,000,000 million tokens in circulation, our goal is that the price of the token does not fluctuate much but always lateralize, we will do this by minting and burning tokens.</p>
+                            </div>
+                        </div>
+    
+                        <!-- Feature image -->
+                        <div class="column is-7">
+                            <img class="side-feature" src="{% static 'images/main/illustrations/cilindros con caja al medio-01.svg' %}" alt="">
+                        </div>
+                    </div>
+    
+                    <div class="columns is-vcentered">
+                        <!-- Feature image -->
+                        <div class="column is-7">
+                            <img class="side-feature" src="{% static 'images/main/illustrations/cajitas apiladas mas separadas-01.svg' %}" alt="">
+                        </div>
+    
+                        <!-- Feature content -->
+                        <div class="column is-5">
+                            <div class="side-feature-content">
+    
+                                <h3 class="title is-4 is-light">Staking</h3>
+                                <div class="divider"></div>
+                                <p class="is-light">Cryptocurrency staking is a process in which we can retain a number of cryptocurrencies in an exchange or wallet, being able to obtain a commission or reward in the same currency. During this process, cryptocurrencies cannot be used, so there is no real liquidity on said assets.</p>
+                            </div>
+                        </div>
+                    </div>
+    
+                    <div class="columns is-vcentered">
+                        <!-- Feature content -->
+                        <div class="column is-5 is-offset-1">
+                            <div class="side-feature-content">
+    
+                                <h3 class="title is-4 is-light">Increased Security</h3>
+                                <div class="divider"></div>
+                                <p class="is-light">Our token is one of the safest since it is audited by a company and made by some great programmers, our goal is for our token to be as safe and transparent as possible, that's why we chose the Binance Smart Chain, one of the fastest blockchains and safe.</p>
+                            </div>
+                        </div>
+    
+                        <!-- Feature image -->
+                        <div class="column is-7">
+                            <img class="side-feature" src="{% static 'images/main/illustrations/cajitas con candado-01.svg' %}" alt="">
+                        </div>
+                    </div>
+                </div>
+    
+                <!-- Spaced divider -->
+                <div class="token-documentation">
+                    <div class="documentation-title">
+                        Documentation
+                    </div>
+                    <div class="columns is-vcentered">
+                        <div class="column is-5">
+                            <div class="columns">
+                                <div class="column is-6">
+                                    <ul>
+                                        <li class="is-active">English</li>
+                                        <!--<li>Español</li>-->
+                                    </ul>
+                                </div>
+                                <div class="column is-6">
+                                    <ul>
+                                </div>
+                            </div>
+    
+                        </div>
+                        <div class="column is-7">
+                            <div class="columns is-vcentered has-text-centered">
+                                
+                                <div class="column is-4">
+                                    <div class="document-block has-text-centered">
+                                        <img src="{% static 'images/main/icons/whitepaper.svg' %}">
+                                        <a href="https://hundredpad.gitbook.io/whitepaper/" class="button k-button k-primary raised has-gradient is-bold">
+                                            <span class="text">Whitepaper</span>
+                                            <span class="front-gradient"></span>
+                                        </a>
+                                    </div>
+                                </div>
+                                
+                                <div class="column is-4">
+                                    <div class="document-block has-text-centered">
+                                        <img src="{% static 'images/main/icons/techpaper.svg' %}">
+                                        <a href="https://hundredpad.gitbook.io/whitepaper/" class="button k-button k-primary raised has-gradient is-bold">
+                                            <span class="text">Tokenomics</span>
+                                            <span class="front-gradient"></span>
+                                        </a>
+                                    </div>
+                                </div>
+                                
+                                <div class="column is-4">
+                                    <div class="document-block has-text-centered">
+                                        <img src="{% static 'images/main/icons/livechat.svg' %}">
+                                        <a href="https://hundredpad.gitbook.io/whitepaper/" class="button k-button k-secondary raised has-gradient is-bold">
+                                            <span class="text">RoadMap</span>
+                                            <span class="front-gradient"></span>
+                                        </a>
+                                    </div>
+                                </div>
+
+                                
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+    
+    
+                <!-- Spaced divider -->
+                <div class="divider is-centered is-spacer"></div>
+                <!-- Title & subtitle -->
+                <h2 class="title is-light is-semibold has-text-centered is-spaced">Token distribution</h2>
+    
+                <!-- Content wrapper -->
+                <div class="content-wrapper">
+    
+                    <div class="columns is-ico-details">
+                        <div class="column is-4">
+                            <div class="details-title">Token percentage</div>
+                            <ul>
+                                <li>Team: 10%</li>
+                                <li>Marketing: 10%</li>
+                                <li>Treasury: 15%</li>
+                                <li>ICO: 30%</li>
+                                <li>Liquidity: 7%</li>
+                                <li>Advisors: 2%</li>
+                                <li>Staking : 15%</li>
+                                <li>Project develompent: 11%</li>
+                            </ul>
+                        </div>
+                        <div class="column is-4">
+                            <div class="details-title">ICOs</div>
+                            <ul>
+                                <li>ICO1: 5% / 50.000 tokens</li>
+                                <li>ICO2: 8% / 80.000 tokens</li>
+                                <li>ICO3: 17% / 170.000 tokens</li>
+                            </ul>
+                               
+                        </div>
+                        <div class="column is-4">
+                            <div class="details-title">Token Utility</div>
+                            <ul>
+                                <li>Staking</li>
+                                <li>Initial Supplay: 1 000 000</li>
+                                <li>Symbol: HUNPAD</li>
+                            </ul>
+                        </div>
+                    </div>
+    
+                    <div class="columns is-vcentered has-text-centered">
+                        <!-- ICO repartition -->
+                        <div class="column is-6 is-offset-3">
+                            <!-- Diagram -->
+                            <img class="ico-repartition" src="{% static 'images/main/illustrations/ico-shares.svg' %}">
+                            <!-- Legend block -->
+                            <div class="repartition-details">
+                                <!-- Legend item -->
+                                <div class="repartition-block">
+                                    <div class="color-dot is-reward"></div>
+                                    <div class="share-title">Team</div>
+                                    <div class="percentage">10%</div>
+                                </div>
+                                <!-- Legend item -->
+                                <div class="repartition-block">
+                                    <div class="color-dot is-presale"></div>
+                                    <div class="share-title">staking </div>
+                                    <div class="percentage">15%</div>
+                                </div>
+                                <!-- Legend item -->
+                                <div class="repartition-block">
+                                    <div class="color-dot is-sale"></div>
+                                    <div class="share-title">ICO</div>
+                                    <div class="percentage">30%</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+    
+                    <!-- CTA -->
+
+   
+                   
+                </div>
+                <!-- /Content wrapper -->
+    
+                <!-- Spaced divider -->
+                <div class="divider is-centered is-spacer"></div>
+                <!-- Title & subtitle -->
+               
+    
+                <!-- Content wrapper -->
+                <div class="content-wrapper is-large">
+                    <div class="columns">
+                        <div class="column is-5 is-offset-1">
+    
+                            <!-- Accordion -->
+                            
+    
+                                
+    
+    
+                            <!-- /Accordion -->
+                        </div>
+                    </div>
+                </div>
+                <!-- /Content wrapper -->
+            </div>
+        </section>
+    </div>
+    <footer class="krypton-footer">
+        <div class="container">
+            <!-- Logo -->
+            <div class="footer-logo">
+                <a href="#">
+                    <img class="rotating" src="{% static 'images/main/logo/krypton-gradient.svg' %}" alt="">
+                    <div class="brand-name">HundredPad</div>
+                    <div class="brand-subtitle">Blockchain brought to another level</div>
+                </a>
+            </div>
+            
+            <!-- Columns -->
+            <div class="columns footer-columns is-vcentered">
+                <div class="column is-4">
+                    <!-- Links group -->
+                    <ul class="footer-links">
+                        <li>
+                            <a href="tokenomics">Tokenomics</a>
+                        </li> 
+                    </ul>
+                </div>
+                <!-- Newsletter -->
+                <div class="column is-4">
+                    <div class="subscribe-block">
+                        <form>
+                            <!-- Field -->
+                            <div class="control">
+                                <!-- Special input -->
+                                <input class="krypton-subscribe-input" type="email" name="email" placeholder="">
+                                <button class="subscribe-button">
+                                    <span>Subscribe</span>
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <!-- Links group -->
+                <div class="column is-4">
+                    <ul class="footer-links">
+                        <li>
+                            <a href="roadmap">Roadmap</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <!-- Copyright -->
+            
+            <br>
+            <ul class="apartadoRedes">
+                 <li><a href=""><img src="{% static 'images/main/icons/footer1.png' %}" alt=""></a></li>
+                 <li><a href="https://www.instagram.com/hundred_pad/"><img src="{% static 'images/main/icons/footer3.png' %}" alt=""></a></li>
+                 <li><a href="https://twitter.com/HundredPad"><img src="{% static 'images/main/icons/footer4.png' %}" alt=""></a></li>
+                 <li><a href="https://discord.gg/XDtJntDUCj"><img src="{% static 'images/main/icons/footer6.png' %}" alt=""></a></li>
+                 <li><a href="https://t.me/HundredPad"><img src="{% static 'images/main/icons/footer7.png' %}" alt=""></a></li>
+              </ul>
+            
+        </div>
+        
+        <!-- Absolute image -->
+        <img class="solar-system" src="{% static 'images/main/bg/solar.svg' %}" alt="">
+    </footer>    <!-- Back To Top Button -->
+    <div x-data="initBackToTop()" x-on:scroll.window="scroll($event)" @click="goTop($event)" id="backtotop"><a href="javascript:" :class="{
+        'visible': scrolled,
+        '': !scrolled
+    }"></a></div>
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="{% static 'js/main/bundle.js' %}"></script>
+
+</body>
+
+</html>

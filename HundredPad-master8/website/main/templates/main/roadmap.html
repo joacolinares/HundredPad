@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>HundredPad</title>
+
+    <link rel="icon" type="image/png" href="{% static 'images/main/favicon.png' %}" />
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css?family=Cabin" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400" rel="stylesheet">
+
+    <link rel="stylesheet" href="{% static 'css/main/app.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/main/main.css' %}">
+</head>
+
+<body>
+
+    <div id="pageloader" class="pageloader is-left-to-right is-theme"></div>
+    <div id="infraloader" class="infraloader is-active"></div>    
+    <div class="roadmap-wrapper">
+        <!-- Landing page Hero -->
+        <section class="hero is-medium">
+            <div class="hero-head">
+    
+                <!-- Cloned navbar -->
+                <!-- Cloned navbar that comes in on scroll -->
+                <nav x-data="initNavbar()"  x-on:scroll.window="scroll()" id="navbar-clone" class="navbar is-fixed is-dark" :class="{
+                        'is-active': scrolled,
+                        '': !scrolled
+                    }">
+                    <div class="container">
+                        <!-- Brand -->
+                        <div class="navbar-brand">
+                            <a href="homepage" class="navbar-item">
+                                <img class="rotating" src="{% static 'images/main/logo/krypton-gradient.svg' %}" alt="">
+                                <span class="brand-name">HundredPad</span>
+                            </a>
+                            <!-- Responsive toggle -->
+                            <div class="navbar-burger" @click="openMobileMenu()">
+                                <div class="menu-toggle">
+                                    <span class="icon-box-toggle" :class="{
+                                            'active': mobileOpen,
+                                            '': !mobileOpen
+                                        }">
+                                        <span class="rotate">
+                                            <i class="icon-line-top"></i>
+                                            <i class="icon-line-center"></i>
+                                            <i class="icon-line-bottom"></i>
+                                        </span>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Menu -->
+                        <div id="cloneNavbarMenu" class="navbar-menu" :class="{
+                                'is-active': mobileOpen,
+                                '': !mobileOpen
+                            }">
+                            <div class="navbar-end">
+                                 <!-- Menu item -->
+                                 <div class="navbar-item is-nav-link">
+                                    <a class="is-centered-responsive" href="tokenomics">Tokenomics</a>
+                                </div>
+                                <!-- Menu item 
+                                <div class="navbar-item is-nav-link">
+                                    <a class="is-centered-responsive" href="ico.html">Ico</a>
+                                </div>-->
+                                <!-- Menu item -->
+                                <div class="navbar-item is-nav-link">
+                                    <a class="is-centered-responsive" href="roadmap">Roadmap</a>
+                                </div>
+                                <!-- Menu item 
+                                <div class="navbar-item is-nav-link">
+                                    <a class="is-centered-responsive" href="blog.html">Media</a>
+                                </div>-->
+                                <!-- Menu item 
+                                <div class="navbar-item is-nav-link">
+                                    <a class="is-centered-responsive" href="#" target="_blank">
+                                        <img class="telegram" src="img/logo/telegram.svg" alt="">
+                                        Telegramm
+                                    </a>
+                                </div>-->
+                                <!-- Sign up -->
+                                <div class="navbar-item is-nav-link">
+                                    <a href="" class="button k-button k-primary raised has-gradient slanted">
+                                        <span class="text">COMING SOON</span>
+                                        <span class="front-gradient"></span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </nav>
+                <!-- /Cloned navbar -->
+                <!-- Static navbar -->
+                <!-- Static navbar -->
+                <nav x-data="initNavbar()" class="navbar is-light" :class="{
+                        'is-dark-mobile': mobileOpen,
+                        '': !mobileOpen
+                    }">
+                    <div class="container">
+                        <!-- Brand -->
+                        <div class="navbar-brand">
+                            <a href="homepage" class="navbar-item">
+                                <img class="rotating" src="{% static 'images/main/logo/krypton.svg' %}" alt="">
+                                <span class="brand-name">HundredPad</span>
+                            </a>
+                            <!-- Responsive toggle -->
+                            <div class="navbar-burger" @click="openMobileMenu()">
+                                <div class="menu-toggle">
+                                    <span class="icon-box-toggle" :class="{
+                                            'active': mobileOpen,
+                                            '': !mobileOpen
+                                        }">
+                                        <span class="rotate">
+                                            <i class="icon-line-top"></i>
+                                            <i class="icon-line-center"></i>
+                                            <i class="icon-line-bottom"></i>
+                                        </span>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Menu -->
+                        <div id="navbarMenu" class="navbar-menu light-menu" :class="{
+                                'is-active': mobileOpen,
+                                '': !mobileOpen
+                            }">
+                            <div class="navbar-end">
+                                <!-- Menu item -->
+                                <div class="navbar-item is-nav-link">
+                                    <a class="is-centered-responsive" href="tokenomics">Tokenomics</a>
+                                </div>
+                                <!-- Menu item 
+                                <div class="navbar-item is-nav-link">
+                                    <a class="is-centered-responsive" href="ico.html">Ico</a>
+                                </div>-->
+                                <!-- Menu item -->
+                                <div class="navbar-item is-nav-link">
+                                    <a class="is-centered-responsive" href="roadmap">Roadmap</a>
+                                </div>
+                                <!-- Menu item 
+                                <div class="navbar-item is-nav-link">
+                                    <a class="is-centered-responsive" href="blog.html">Media</a>
+                                </div>-->
+                                <!-- Menu item -->
+                                <!--<div class="navbar-item is-nav-link">
+                                    <a class="is-centered-responsive" href="#" target="_blank">
+                                        <img class="telegram" src="img/logo/telegram.svg" alt="">
+                                        Telegram
+                                    </a>
+                                </div>-->
+                                <!-- Sign up -->
+                                <div class="navbar-item">
+                                    <a href="" class="button k-button k-primary raised has-gradient slanted">
+                                        <span class="text">COMING SOON</span>
+                                        <span class="front-gradient"></span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </nav>
+                <!-- /Static navbar -->
+            </div>
+    
+            <div class="hero-body has-text-centered">
+                <div class="columns">
+                    <div class="column is-6 is-offset-3">
+                        <div class="roadmap-image">
+                            <img src="{% static 'images/main/illustrations/world.svg' %}">
+                        </div>
+                        <h1 class="title is-2 is-light is-semibold is-spaced main-title">2022 Roadmap</h1>
+                        <h2 class="subtitle is-5 is-light is-thin">
+                            Cryptocurrency brought to the next level. Join our IDO for the best rates.
+                        </h2>
+                        <!-- CTA -->
+                        <p>
+                            <a href="https://hundredpad.gitbook.io/whitepaper/" class="button k-button k-primary raised has-gradient is-fat is-bold">
+                                <span class="text">More details</span>
+                                <span class="front-gradient"></span>
+                            </a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    
+        <section x-data="initRoadmap()" x-init="setupRoadmap()" id="roadmap" class="main-timeline">
+            <ul>
+                <li>
+                    <div>
+                        <span class="item-title">Creation of the idea</span>
+                        <time>Q1 2022</time> 
+                        <span class="item-content">
+                            Creation of social networks, WhitePaper, Tokenomics, FAQ and Roadmap. We also work with marketing.
+                        </span>
+                    </div>
+                </li>
+                <li>
+                    <div>
+                        <span class="item-title">Presales starts</span>
+                        <time>Q2 2022</time> 
+                        <span class="item-content">
+                            We start with the first pre sale, both our token and other tokens. These tokens will be audited by our team.
+                        </span>
+                    </div>
+                </li>
+                <li>
+                    <div>
+                        <span class="item-title">Add another idea apart from the launch pad</span>
+                        <time>Q3 2022</time> 
+                        <span class="item-content">
+                            Our idea is that hundredpad is not only a launch pad but also more functions can be added and people can interact in many ways.
+                        </span>
+                    </div>
+                </li>
+                <li>
+                    <div>
+                        <span class="item-title">Continue with our ideas and continue to pre-sale tokens from other projects</span>
+                        <time>Q4 2022</time> 
+                        <span class="item-content">
+                            Continue with our ideas and continue pre-selling tokens from other projects. Our idea is that at this time our reach is very high and to be able to have the biggest influencers in our team.
+                        </span>
+                    </div>
+                </li>
+                <li>
+                    <div>
+                        <span class="item-title">Coming soon</span>
+                        <time>Q1 2023</time> 
+                        <span class="item-content">
+                            Coming soon
+                        </span>
+                    </div>
+                </li>
+            </ul>
+        </section>
+    
+        <section>
+            <div class="roadmap-end">
+                <img src="{% static 'images/main/illustrations/cubo energetico-01.svg' %}" alt="">
+            </div>
+    
+            <div class="follow-us">
+    
+                <div data-aos="fade-up" data-aos-delay="100" data-aos-offset="100" data-aos-easing="ease-out-quart">
+                    
+                </div>
+    
+                <div data-aos="fade-up" data-aos-delay="200" data-aos-offset="100" data-aos-easing="ease-out-quart">
+                   
+                        
+                    
+                </div>
+    
+                <div data-aos="fade-up" data-aos-delay="300" data-aos-offset="100" data-aos-easing="ease-out-quart">
+                    
+                        
+                    
+                </div>
+    
+                <div data-aos="fade-up" data-aos-delay="400" data-aos-offset="100" data-aos-easing="ease-out-quart">
+                    
+                </div>
+    
+                <div data-aos="fade-up" data-aos-delay="500" data-aos-offset="100" data-aos-easing="ease-out-quart">
+                    
+                </div>
+            </div>
+        </section>
+    
+    </div>
+    <footer class="krypton-footer">
+        <div class="container">
+            <!-- Logo -->
+            <div class="footer-logo">
+                <a href="#">
+                    <img class="rotating" src="{% static 'images/main/logo/krypton-gradient.svg' %}" alt="">
+                    <div class="brand-name">HundredPad</div>
+                    <div class="brand-subtitle">Blockchain brought to another level</div>
+                </a>
+            </div>
+            
+            <!-- Columns -->
+            <div class="columns footer-columns is-vcentered">
+                <div class="column is-4">
+                    <!-- Links group -->
+                    <ul class="footer-links">
+                        <li>
+                            <a href="tokenomics">Tokenomics</a>
+                        </li>  
+                    </ul>
+                </div>
+                <!-- Newsletter -->
+                <div class="column is-4">
+                    <div class="subscribe-block">
+                        <form>
+                            <!-- Field -->
+                            <div class="control">
+                                <!-- Special input -->
+                                <input class="krypton-subscribe-input" type="email" name="email" placeholder="">
+                                <button class="subscribe-button">
+                                    <span>Subscribe</span>
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <!-- Links group -->
+                <div class="column is-4">
+                    <ul class="footer-links">
+                        <li>
+                            <a href="roadmap">Roadmap</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <!-- Copyright -->
+           
+            <br>
+            <!-- Made by -->
+            <ul class="apartadoRedes">
+                 <li><a href=""><img src="{% static 'images/main/icons/footer1.png' %}" alt=""></a></li>
+                 <li><a href="https://www.instagram.com/hundred_pad/"><img src="{% static 'images/main/icons/footer3.png' %}" alt=""></a></li>
+                 <li><a href="https://twitter.com/HundredPad"><img src="{% static 'images/main/icons/footer4.png' %}" alt=""></a></li>
+                 <li><a href="https://discord.gg/XDtJntDUCj"><img src="{% static 'images/main/icons/footer6.png' %}" alt=""></a></li>
+                 <li><a href="https://t.me/HundredPad"><img src="{% static 'images/main/icons/footer7.png' %}" alt=""></a></li>
+              </ul>
+        </div>
+        
+        <!-- Absolute image -->
+        <img class="solar-system" src="{% static 'images/main/bg/solar.svg' %}" alt="">
+    </footer>    <!-- Back To Top Button -->
+    <div x-data="initBackToTop()" x-on:scroll.window="scroll($event)" @click="goTop($event)" id="backtotop"><a href="javascript:" :class="{
+        'visible': scrolled,
+        '': !scrolled
+    }"></a></div>
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="{% static 'js/main/bundle.js' %}"></script>
+
+</body>
+
+</html>
